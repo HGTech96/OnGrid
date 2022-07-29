@@ -42,7 +42,7 @@ public class UserController {
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.CREATED)
     public String login() {
-        return "test success!";
+        return "test success!!";
     }
 
     @GetMapping("/exam/result")
