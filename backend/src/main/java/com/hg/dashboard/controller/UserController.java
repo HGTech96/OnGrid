@@ -26,6 +26,7 @@ public class UserController {
 
     @GetMapping("/intro")
     public String test() {
+
         return "Yes!";
     }
 
