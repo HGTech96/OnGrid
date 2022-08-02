@@ -19,12 +19,12 @@ public class JwtTokenUtil {
     @Value("${jwt.auth.secret_key}")
     private String secretKey;
 
-    public String generateAccessToken(User user, Date issuedAt, Date expiresOn) {
+    public String generateAccessToken(User user) {
         return Jwts.builder()
                 .setSubject(user.getId().toString())
                 .setIssuer(this.appname)
-                .setIssuedAt(issuedAt)
-                .setExpiration(expiresOn)
+//                .setIssuedAt(issuedAt)
+//                .setExpiration(expiresOn)
                 .signWith(SignatureAlgorithm.HS512, this.secretKey)
                 .compact();
     }
@@ -50,6 +50,10 @@ public class JwtTokenUtil {
     public String getUsername(String token) {
         return parseClaims(token).getSubject();
     }
+    public Long getUserId(String token) {
+        return Long.parseLong(parseClaims(token).getSubject());
+    }
+
 
     private Claims parseClaims(String token) {
         return Jwts.parser()

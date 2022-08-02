@@ -24,6 +24,9 @@ public class User implements UserDetails {
     private String email;
     private String password;
 
+    public User(Long id) {
+        this.id = id;
+    }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;

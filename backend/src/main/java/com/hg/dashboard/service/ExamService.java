@@ -5,12 +5,14 @@ import com.hg.dashboard.repository.ExamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ExamService {
     @Autowired
     ExamRepository examRepository;
 
-    public ExamResult getResultForUser(Long userId) {
+    public ExamResult getResultsForUser(Long userId) {
         return examRepository.findByUserId(userId);
     }
 }

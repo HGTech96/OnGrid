@@ -1,2 +1,28 @@
 POST http://localhost:8080/auth/login
 #Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJIcmFjaHlhIiwiaWF0IjoxNjU5MDk2ODM0LCJleHAiOjE2OTA2MzI4MzQsImF1ZCI6Ind3dy5leGFtcGxlLmNvbSIsInN1YiI6Impyb2NrZXRAZXhhbXBsZS5jb20iLCJHaXZlbk5hbWUiOiJKb2hubnkiLCJTdXJuYW1lIjoiUm9ja2V0IiwiRW1haWwiOiJqcm9ja2V0QGV4YW1wbGUuY29tIiwiUm9sZSI6WyJNYW5hZ2VyIiwiUHJvamVjdCBBZG1pbmlzdHJhdG9yIl19.uabJx49X_fmMLMlNlNDmeVn9EUWIYmYhYQliPGHCUvs?23ee
+
+###
+POST http://localhost:8080/auth/register
+Content-Type: application/json;charset=UTF-8
+
+{
+  "email" : "test@email.com",
+  "password" : "123456"
+}
+
+###
+POST http://localhost:8080/auth/login
+Content-Type: application/json;charset=UTF-8
+
+{
+"email" : "test@email.com",
+"password" : "123456"
+}
+
+###
+GET http://localhost:8080/exam
+
+###
+GET http://localhost:8080/auth/test
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaXNzIjoiU3ByaW5nLVNlY3VyaXR5LUFwcCJ9.wqVfieswZLaWTVWTKtNkUOL6RX1YonF5c8VTWs0d_5324VPi2s5qQ5JOtoHeJfFZET-49pCTk-WCOVI4a2YE4Q
+
