@@ -52,6 +52,7 @@ public class UserController extends BaseController {
         return userService.getUser(loggedInUserId);
     }
 
+    @CrossOrigin
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?>  register(@Valid @RequestBody User userData) {
@@ -63,10 +64,16 @@ public class UserController extends BaseController {
         return ResponseEntity.ok(response);
     }
 
+    @CrossOrigin
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.CREATED)
     public String login(@Valid @RequestBody LoginData loginData) {
-        return "test";
+        Authentication authentication = authManager.authenticate(
+                new UsernamePasswordAuthenticationToken(loginData.getEmail(), loginData.getPassword())
+        );
+        User userDetails = (User) authentication.getPrincipal();
+        User user = userService.getUser(userDetails.getId());
+        return jwtTokenUtil.generateAccessToken(user);
     }
 }
 
